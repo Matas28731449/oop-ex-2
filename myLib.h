@@ -1,5 +1,7 @@
 #include <algorithm> 
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <iomanip>
 #include <string>
 #include <vector>
@@ -21,6 +23,9 @@ using std::fixed;
 using std::string;
 using std::vector;
 using std::mt19937;
+using std::getline;
+using std::ifstream;
+using std::ofstream;
 using std::setprecision;
 using std::uniform_int_distribution;
 using std::chrono::high_resolution_clock;
