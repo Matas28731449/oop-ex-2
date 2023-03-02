@@ -1,5 +1,15 @@
 # oop ex. 1
 
+**v0.3**
+
+Updates from previous version:
+
+- `Refactored` the `code`: created `separate headers` for functions and references ;
+
+- `Makefile` has been created for easier multiple file compiling ;
+
+- Applied `exception handling` when trying to read from file .
+
 **v0.2**
 
 Key functions have been developed such as:
