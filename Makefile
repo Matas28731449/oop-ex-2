@@ -1,6 +1,6 @@
-main: functions.o
-	g++ -std=c++17 -o main main.cpp functions.o -O3
+main: clean
+	g++ -std=c++17 -O3 -o main main.cpp functions.cpp
 functions:
-	g++ -std=c++17 -c functions.cpp -O3
+	g++ -std=c++17 -O3 -o functions.cpp
 clean:
-	rm *.o main
+	rm -f *.o main

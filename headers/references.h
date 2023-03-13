@@ -10,6 +10,8 @@ struct student {
                 surname;
     vector<int> grade;
     int         exam;
+    double      medium,
+                median;
 };
 
 void input(vector<student> &arr, string &opt);
@@ -21,5 +23,6 @@ double medium(student &tmp);
 double median(student &tmp);
 bool comparison(student &a, student &b);
 int randomize(int beg, int end);
+void fileGenerator();
 
 #endif

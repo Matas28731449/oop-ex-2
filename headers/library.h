@@ -1,5 +1,6 @@
 #include <algorithm> 
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <iomanip>
 #include <string>
@@ -9,7 +10,9 @@
 
 using std::chrono::high_resolution_clock;
 using std::uniform_int_distribution;
+using std::stringstream;
 using std::setprecision;
+using std::to_string;
 using std::ifstream;
 using std::ofstream;
 using std::getline;
