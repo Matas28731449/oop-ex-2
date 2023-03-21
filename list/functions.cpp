@@ -1,6 +1,6 @@
 #include "headers/references.h"
 
-void input(vector<student> &arr, string &opt) {
+void input(list<student> &arr, string &opt) {
     student tmp;
     string  req = " ";
     cout << "'in' to input the data manually ;\n'gf' to generate random data file ;\n'rf' to read the data from file .\n";
@@ -27,7 +27,7 @@ void input(vector<student> &arr, string &opt) {
     }
     else if(opt == "rf") fileInput(arr);
 }
-void output(vector<student> &arr, string tmp) {
+void output(list<student> &arr, string tmp) {
     string opt = " ";
     //----------END OF THE PROGRAM----------
     while(opt != "vid" && opt != "med") {
@@ -38,8 +38,8 @@ void output(vector<student> &arr, string tmp) {
         cout << "-----------------------------------------------------------\n";
         cout << left << setw(10) << "Vardas" << left << setw(14) << "Pavarde" << left << setw(12) << "Galutinis (Vid.) / Galutinis (Med.)\n";
         cout << "-----------------------------------------------------------\n";
-        for(int i = 0; i < arr.size(); i ++) {
-            opt == "vid" ? cout << setw(10) << left << arr[i].name << setw(14) << left << arr[i].surname << setw(19) << left << fixed << setprecision(2) << medium(arr[i]) << "-\n" : cout << setw(10) << left << arr[i].name << setw(14) << left << arr[i].surname << setw(19) << left << fixed << setprecision(2) << "-" << median(arr[i]) << "\n";
+        for(auto &i : arr) {
+            opt == "vid" ? printf("%-9s %-13s %-19.2f \n", i.name.c_str(), i.surname.c_str(), medium(i)) : printf("%-9s %-13s %23.2f \n", i.name.c_str(), i.surname.c_str(), median(i));
         }
     }
     //----------OUTPUT IN FILE----------
@@ -47,43 +47,40 @@ void output(vector<student> &arr, string tmp) {
         cout << "Sorting data...\n";
         auto start = std::chrono::high_resolution_clock::now();
         if(opt == "vid") {
-            sort(arr.begin(), arr.end(),
-            [] (student a, student b) {
+            arr.sort([] (student a, student b) {
                 return a.medium == b.medium ? a.surname < b.surname : a.medium < b.medium;
             });
         }
         else if(opt == "med") {
-            sort(arr.begin(), arr.end(),
-            [] (student a, student b) {
+            arr.sort([] (student a, student b) {
                 return a.median == b.median ? a.surname < b.surname : a.median < b.median;
             });
         }
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> difference = end - start;
         cout << "finished in: " << difference.count() << " s\n";
-        cout << "Splitting into two vectors...\n";
+        cout << "Splitting into two lists...\n";
         start = std::chrono::high_resolution_clock::now();
-        vector<student> fail,
-                        pass;
+        list<student> fail,
+                      pass;
         if(opt == "vid") {
             for(auto &i : arr) {
                 i.medium < 5 ? fail.push_back(i) : pass.push_back(i);
             }
-            fail.shrink_to_fit();
-            pass.shrink_to_fit();
         }
         else if(opt == "med") {
             for(auto &i : arr) {
                 i.median < 5 ? fail.push_back(i) : pass.push_back(i);
             }
-            fail.shrink_to_fit();
-            pass.shrink_to_fit();
         }
         end = std::chrono::high_resolution_clock::now();
         difference = end - start;
         cout << "finished in: " << difference.count() << " s\n";
         // TEMPLATE
         ofstream out[2];
+        string   failRow = "",
+                 passRow = "";
+        char     entry[100];
         out[0].open("write/fail.txt");
         out[1].open("write/pass.txt");
         for(int i = 0; i < 2; i ++) {
@@ -93,27 +90,31 @@ void output(vector<student> &arr, string tmp) {
         }
         cout << "Writing into fail.txt...\n";
         start = std::chrono::high_resolution_clock::now();
-        for(int i = 0; i < fail.size(); i ++) {
-            opt == "vid" ? out[0] << setw(14) << left << fail[i].name << setw(18) << left << fail[i].surname << setw(19) << left << fixed << setprecision(2) << fail[i].medium << "-\n" : out[0] << setw(14) << left << fail[i].name << setw(18) << left << fail[i].surname << setw(19) << left << fixed << setprecision(2) << "-" << fail[i].median << "\n";
+        for(auto &i : fail) {
+            opt == "vid" ? sprintf(entry, "%-13s %-17s %-18.2f \n", i.name.c_str(), i.surname.c_str(), i.medium) : sprintf(entry, "%-13s %-17s %23.2f \n", i.name.c_str(), i.surname.c_str(), i.median);
+            failRow += entry;
         }
-        out[0].close();
         fail.clear();
+        out[0] << failRow;
+        out[0].close();
         end = std::chrono::high_resolution_clock::now();
         difference = end - start;
         cout << "finished in: " << difference.count() << " s\n";
         cout << "Writing into pass.txt...\n";
         start = std::chrono::high_resolution_clock::now();
-        for(int i = 0; i < pass.size(); i ++) {
-            opt == "vid" ? out[1] << setw(14) << left << pass[i].name << setw(18) << left << pass[i].surname << setw(19) << left << fixed << setprecision(2) << pass[i].medium << "-\n" : out[1] << setw(14) << left << pass[i].name << setw(18) << left << pass[i].surname << setw(19) << left << fixed << setprecision(2) << "-" << pass[i].median << "\n";
+        for(auto &i : pass) {
+            opt == "vid" ? sprintf(entry, "%-13s %-17s %-18.2f \n", i.name.c_str(), i.surname.c_str(), i.medium) : sprintf(entry, "%-13s %-17s %23.2f \n", i.name.c_str(), i.surname.c_str(), i.median);
+            passRow += entry;
         }
         pass.clear();
+        out[1] << passRow;
         out[1].close();
         end = std::chrono::high_resolution_clock::now();
         difference = end - start;
         cout << "finished in: " << difference.count() << " s\n";
     }
 }
-void fileInput(vector<student> &arr) {
+void fileInput(list<student> &arr) {
     stringstream buf;   // buffer
     ifstream     in;    // input
     student      tmp;   // temporary
@@ -124,15 +125,14 @@ void fileInput(vector<student> &arr) {
     system("ls read");
     cout << "Enter the name of the file to read from: "; cin >> file;
     try {
-        cout << "Reading data...\n";
-        auto start = std::chrono::high_resolution_clock::now();
         in.open("read/" + file);
         if(in.fail()) throw 6;
+        cout << "Reading data...\n";
+        auto start = std::chrono::high_resolution_clock::now();
         buf << in.rdbuf();
         in.close();
         getline(buf, row); // reading just the first line of the data file
         int cnt = count(row.begin(), row.end(), 'N'); // searching for the amount of homework
-        tmp.grade.reserve(cnt);
         while(buf) {
             if(!buf.eof()) {
                 buf >> tmp.name >> tmp.surname;
@@ -169,7 +169,6 @@ void userInput(student &tmp) {
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             cout << "Incorrect form. Try again: "; cin >> tmp.exam;
         }
-        tmp.grade.reserve(max);
         cout << "Enter the grades (any other symbol to stop): ";
         while(cin >> grd && grd >= 0 && grd <= 10) {
             if(tmp.grade.size() >= max) {
@@ -196,7 +195,6 @@ void randInput(student &tmp) {
     tmp.exam = randomize(1, 10); // generated grade in a ten point system without 0 (student must participate in an exam)
     cout << "The exam grade: " << tmp.exam << "\n";
     cnt = randomize(1, max);
-    tmp.grade.reserve(cnt);
     cout << "The grades: ";
     for(int i = 0; i < cnt; i ++) {
         grd = randomize(0, 10); // generated grade in a ten point system with 0 (student may not submit his homework)
@@ -206,15 +204,13 @@ void randInput(student &tmp) {
 }
 double medium(student &tmp) {
     int sum = 0;
-    for(int i = 0; i < tmp.grade.size(); i ++) {
-        sum += tmp.grade[i];
-    }
+    sum = accumulate(tmp.grade.begin(), tmp.grade.end(), sum); // computing the sum of the given initial value and the elements in the given range
     return 0.4 * ((double)sum / tmp.grade.size()) + 0.6 * tmp.exam;
 }
 double median(student &tmp) {
-    vector<int> grd = tmp.grade; // temporary copy of grades
-    sort(grd.begin(), grd.end());
-    return grd.size() % 2 == 0 ? 0.4 * ((grd[grd.size() / 2 - 1] + grd[grd.size() / 2]) / 2.0) + 0.6 * tmp.exam : 0.4 * grd[grd.size() / 2] + 0.6 * tmp.exam;
+    list<int>::iterator it;
+    tmp.grade.sort();
+    return tmp.grade.size() % 2 == 0 ? 0.4 * (*(next(tmp.grade.begin(), tmp.grade.size() / 2 - 1)) + *(next(next(tmp.grade.begin(), tmp.grade.size() / 2 - 1), 1))) / 2.0 + 0.6 * tmp.exam : 0.4 * *(next(tmp.grade.begin(), tmp.grade.size() / 2)) + 0.6 * tmp.exam;
 }
 int randomize(int beg, int end) { // beginning, ending
     mt19937 mt(static_cast<long unsigned int>(std::chrono::high_resolution_clock::now().time_since_epoch().count()));
@@ -251,7 +247,7 @@ void fileGenerator() {
     for(int i = 0; i < homework; i ++) {
         buf << left << setw(10) << "ND" + to_string(i + 1);
     }
-    buf << left << setw(10) << "Egz.\n";
+    buf << left << setw(10) << "Egz." << "\n";
     // GENERATOR
     for(int i = 0; i < students; i ++) {
         buf << left << setw(14) << "Vardas" + to_string(i + 1) << left << setw(18) << "Pavarde" + to_string(i + 1);
