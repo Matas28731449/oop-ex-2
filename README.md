@@ -2,25 +2,25 @@
 
 **Installation process:**
 
-Clone my GitHub repository: `https://github.com/Matas28731449/oop-ex-1.git` ;
+Clone my GitHub repository: `git clone https://github.com/Matas28731449/oop-ex-1.git` ;
 
 Navigate to cloned repository: `cd {folder name}/oop-ex-1/` ;
 
-Choose the desired strategy: `cd {strategy1 / strategy2}/{deque / list / vector}` ;
+Choose your desired realization: `cd {strategy1 / strategy2}/{deque / list / vector}` ;
 
 Compile the files via Makefile: `make` ;
 
 Run the program: `./main` ;
 
-Follow the instructions, <b style="color: lightblue">happy use!</b>
+Follow the instructions, <b style="color: blue">happy using!</b>
 
 **v1.0**
 
-Splitting into two containers uses 2 strategies:
+Splitting into two containers uses 2 new strategies:
 
-- Strategy 1 creates two independent containers and splits students between them (memory consuming) ;
+- Strategy 1 creates `two` independent `containers` and splits students between them (memory consuming) ;
 
-- Strategy 2 reuses the main container for unsuccessful students and creates a single container for successful students :
+- Strategy 2 `reuses` the `main container` for unsuccessful students and `creates a single container` for successful students :
 
 *2nd strategy (10.000.000 students):*
 
@@ -38,7 +38,7 @@ Splitting into two containers uses 2 strategies:
 | *std::list*   | 3.99397   |
 | *std::vector* | 2.75432   |
 
-- The 2nd strategy is more rational, since the program performs faster and consumes 2x less memory .
+- The `2nd strategy` is more rational, since the program `performs faster` and consumes `2x less memory` .
 
 **v0.5**
 
