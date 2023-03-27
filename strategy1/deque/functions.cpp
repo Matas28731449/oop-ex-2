@@ -1,6 +1,6 @@
 #include "headers/references.h"
 
-void input(vector<student> &arr, string &opt) {
+void input(deque<student> &arr, string &opt) {
     student tmp;
     string  req = " ";
     cout << "'in' to input the data manually ;\n'gf' to generate random data file ;\n'rf' to read the data from file .\n";
@@ -27,7 +27,7 @@ void input(vector<student> &arr, string &opt) {
     }
     else if(opt == "rf") fileInput(arr);
 }
-void output(vector<student> &arr, string tmp) {
+void output(deque<student> &arr, string tmp) {
     string opt = " ";
     //----------END OF THE PROGRAM----------
     while(opt != "vid" && opt != "med") {
@@ -44,6 +44,7 @@ void output(vector<student> &arr, string tmp) {
     }
     //----------OUTPUT IN FILE----------
     else if(tmp == "rf") {
+        // SORTING
         cout << "Sorting data...\n";
         auto start = std::chrono::high_resolution_clock::now();
         if(opt == "vid") {
@@ -61,10 +62,11 @@ void output(vector<student> &arr, string tmp) {
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> difference = end - start;
         cout << "finished in: " << difference.count() << " s\n";
-        cout << "Splitting into two vectors...\n";
+        // SPLITTING, strategy 1
+        cout << "Splitting into two deques (1st strategy)...\n";
         start = std::chrono::high_resolution_clock::now();
-        vector<student> fail,
-                        pass;
+        deque<student> fail,
+                       pass;
         if(opt == "vid") {
             for(auto &i : arr) {
                 i.medium < 5 ? fail.push_back(i) : pass.push_back(i);
@@ -94,6 +96,7 @@ void output(vector<student> &arr, string tmp) {
             out[i] << left << setw(14) << "Vardas" << left << setw(18) << "Pavarde" << left << setw(16) << "Galutinis (Vid.) / Galutinis (Med.)\n";
             out[i] << "-------------------------------------------------------------------\n";
         }
+        // WRITING
         cout << "Writing into fail.txt...\n";
         start = std::chrono::high_resolution_clock::now();
         for(auto &i : fail) {
@@ -120,7 +123,7 @@ void output(vector<student> &arr, string tmp) {
         cout << "finished in: " << difference.count() << " s\n";
     }
 }
-void fileInput(vector<student> &arr) {
+void fileInput(deque<student> &arr) {
     stringstream buf;   // buffer
     ifstream     in;    // input
     student      tmp;   // temporary
@@ -139,7 +142,6 @@ void fileInput(vector<student> &arr) {
         in.close();
         getline(buf, row); // reading just the first line of the data file
         int cnt = count(row.begin(), row.end(), 'N'); // searching for the amount of homework
-        tmp.grade.reserve(cnt);
         while(buf) {
             if(!buf.eof()) {
                 buf >> tmp.name >> tmp.surname;
@@ -176,7 +178,6 @@ void userInput(student &tmp) {
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             cout << "Incorrect form. Try again: "; cin >> tmp.exam;
         }
-        tmp.grade.reserve(max);
         cout << "Enter the grades (any other symbol to stop): ";
         while(cin >> grd && grd >= 0 && grd <= 10) {
             if(tmp.grade.size() >= max) {
@@ -203,7 +204,6 @@ void randInput(student &tmp) {
     tmp.exam = randomize(1, 10); // generated grade in a ten point system without 0 (student must participate in an exam)
     cout << "The exam grade: " << tmp.exam << "\n";
     cnt = randomize(1, max);
-    tmp.grade.reserve(cnt);
     cout << "The grades: ";
     for(int i = 0; i < cnt; i ++) {
         grd = randomize(0, 10); // generated grade in a ten point system with 0 (student may not submit his homework)
@@ -219,7 +219,7 @@ double medium(student &tmp) {
     return 0.4 * ((double)sum / tmp.grade.size()) + 0.6 * tmp.exam;
 }
 double median(student &tmp) {
-    vector<int> grd = tmp.grade; // temporary copy of grades
+    deque<int> grd = tmp.grade; // temporary copy of grades
     sort(grd.begin(), grd.end());
     return grd.size() % 2 == 0 ? 0.4 * ((grd[grd.size() / 2 - 1] + grd[grd.size() / 2]) / 2.0) + 0.6 * tmp.exam : 0.4 * grd[grd.size() / 2] + 0.6 * tmp.exam;
 }

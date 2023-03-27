@@ -1,6 +1,6 @@
 #include "headers/references.h"
 
-void input(list<student> &arr, string &opt) {
+void input(deque<student> &arr, string &opt) {
     student tmp;
     string  req = " ";
     cout << "'in' to input the data manually ;\n'gf' to generate random data file ;\n'rf' to read the data from file .\n";
@@ -27,7 +27,7 @@ void input(list<student> &arr, string &opt) {
     }
     else if(opt == "rf") fileInput(arr);
 }
-void output(list<student> &arr, string tmp) {
+void output(deque<student> &arr, string tmp) {
     string opt = " ";
     //----------END OF THE PROGRAM----------
     while(opt != "vid" && opt != "med") {
@@ -44,35 +44,46 @@ void output(list<student> &arr, string tmp) {
     }
     //----------OUTPUT IN FILE----------
     else if(tmp == "rf") {
+        // SORTING
         cout << "Sorting data...\n";
         auto start = std::chrono::high_resolution_clock::now();
         if(opt == "vid") {
-            arr.sort([] (student a, student b) {
-                return a.medium == b.medium ? a.surname < b.surname : a.medium < b.medium;
+            sort(arr.begin(), arr.end(),
+            [] (student a, student b) {
+                return a.medium == b.medium ? a.surname > b.surname : a.medium > b.medium;
             });
         }
         else if(opt == "med") {
-            arr.sort([] (student a, student b) {
-                return a.median == b.median ? a.surname < b.surname : a.median < b.median;
+            sort(arr.begin(), arr.end(),
+            [] (student a, student b) {
+                return a.median == b.median ? a.surname > b.surname : a.median > b.median;
             });
         }
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> difference = end - start;
         cout << "finished in: " << difference.count() << " s\n";
-        cout << "Splitting into two lists...\n";
+        // SPLITTING, strategy 2
+        cout << "Splitting into two deques (2nd strategy)...\n";
         start = std::chrono::high_resolution_clock::now();
-        list<student> fail,
-                      pass;
+        deque<student> fail;
         if(opt == "vid") {
             for(auto &i : arr) {
-                i.medium < 5 ? fail.push_back(i) : pass.push_back(i);
+                if(arr.back().medium < 5) {
+                    fail.push_back(arr.back());
+                    arr.pop_back();
+                }
             }
         }
         else if(opt == "med") {
             for(auto &i : arr) {
-                i.median < 5 ? fail.push_back(i) : pass.push_back(i);
+                if(arr.back().median < 5) {
+                    fail.push_back(arr.back());
+                    arr.pop_back();
+                }
             }
         }
+        fail.shrink_to_fit();
+        arr.shrink_to_fit();
         end = std::chrono::high_resolution_clock::now();
         difference = end - start;
         cout << "finished in: " << difference.count() << " s\n";
@@ -88,6 +99,7 @@ void output(list<student> &arr, string tmp) {
             out[i] << left << setw(14) << "Vardas" << left << setw(18) << "Pavarde" << left << setw(16) << "Galutinis (Vid.) / Galutinis (Med.)\n";
             out[i] << "-------------------------------------------------------------------\n";
         }
+        // WRITING
         cout << "Writing into fail.txt...\n";
         start = std::chrono::high_resolution_clock::now();
         for(auto &i : fail) {
@@ -102,11 +114,11 @@ void output(list<student> &arr, string tmp) {
         cout << "finished in: " << difference.count() << " s\n";
         cout << "Writing into pass.txt...\n";
         start = std::chrono::high_resolution_clock::now();
-        for(auto &i : pass) {
+        for(auto &i : arr) {
             opt == "vid" ? sprintf(entry, "%-13s %-17s %-18.2f \n", i.name.c_str(), i.surname.c_str(), i.medium) : sprintf(entry, "%-13s %-17s %23.2f \n", i.name.c_str(), i.surname.c_str(), i.median);
             passRow += entry;
         }
-        pass.clear();
+        arr.clear();
         out[1] << passRow;
         out[1].close();
         end = std::chrono::high_resolution_clock::now();
@@ -114,7 +126,7 @@ void output(list<student> &arr, string tmp) {
         cout << "finished in: " << difference.count() << " s\n";
     }
 }
-void fileInput(list<student> &arr) {
+void fileInput(deque<student> &arr) {
     stringstream buf;   // buffer
     ifstream     in;    // input
     student      tmp;   // temporary
@@ -125,10 +137,10 @@ void fileInput(list<student> &arr) {
     system("ls read");
     cout << "Enter the name of the file to read from: "; cin >> file;
     try {
-        in.open("read/" + file);
-        if(in.fail()) throw 6;
         cout << "Reading data...\n";
         auto start = std::chrono::high_resolution_clock::now();
+        in.open("read/" + file);
+        if(in.fail()) throw 6;
         buf << in.rdbuf();
         in.close();
         getline(buf, row); // reading just the first line of the data file
@@ -204,13 +216,15 @@ void randInput(student &tmp) {
 }
 double medium(student &tmp) {
     int sum = 0;
-    sum = accumulate(tmp.grade.begin(), tmp.grade.end(), sum); // computing the sum of the given initial value and the elements in the given range
+    for(int i = 0; i < tmp.grade.size(); i ++) {
+        sum += tmp.grade[i];
+    }
     return 0.4 * ((double)sum / tmp.grade.size()) + 0.6 * tmp.exam;
 }
 double median(student &tmp) {
-    list<int>::iterator it;
-    tmp.grade.sort();
-    return tmp.grade.size() % 2 == 0 ? 0.4 * (*(next(tmp.grade.begin(), tmp.grade.size() / 2 - 1)) + *(next(next(tmp.grade.begin(), tmp.grade.size() / 2 - 1), 1))) / 2.0 + 0.6 * tmp.exam : 0.4 * *(next(tmp.grade.begin(), tmp.grade.size() / 2)) + 0.6 * tmp.exam;
+    deque<int> grd = tmp.grade; // temporary copy of grades
+    sort(grd.begin(), grd.end());
+    return grd.size() % 2 == 0 ? 0.4 * ((grd[grd.size() / 2 - 1] + grd[grd.size() / 2]) / 2.0) + 0.6 * tmp.exam : 0.4 * grd[grd.size() / 2] + 0.6 * tmp.exam;
 }
 int randomize(int beg, int end) { // beginning, ending
     mt19937 mt(static_cast<long unsigned int>(std::chrono::high_resolution_clock::now().time_since_epoch().count()));
