@@ -14,13 +14,29 @@ Run the program: `./main` ;
 
 Follow the instructions, <b style="color: blue">happy using!</b>
 
+**v1.0.1**
+
+Updates from previous version:
+
+- Strategy 3 has been added with the `specified algorithms` ;
+
+*3rd strategy (10.000.000 students):*
+
+| Type / Time   | Splitting |
+|---------------|-----------|
+| *std::deque*  | 0.700288  |
+| *std::list*   | 3.86502   |
+| *std::vector* | 0.845625  |
+
+- The `3rd strategy` is `faster using std::vector` compared to the previous two .
+
 **v1.0**
 
 Splitting into two containers uses 2 new strategies:
 
 - Strategy 1 creates `two` independent `containers` and splits students between them (memory consuming) ;
 
-- Strategy 2 `reuses` the `main container` for unsuccessful students and `creates a single container` for successful students :
+- Strategy 2 `reuses` the `main container` for unsuccessful students and `creates a single container` for successful students ;
 
 *2nd strategy (10.000.000 students):*
 
