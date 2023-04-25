@@ -1,6 +1,10 @@
 #include "headers/references.h"
 
-void input(deque<student> &arr, string &opt) {
+void student::setGrade(int a) {
+    grade.reserve(grade.size() + 1);
+    grade.push_back(a);
+}
+void input(vector<student> &arr, string &opt) {
     student tmp;
     string  req = " ";
     cout << "'in' to input the data manually ;\n'gf' to generate random data file ;\n'rf' to read the data from file .\n";
@@ -14,7 +18,7 @@ void input(deque<student> &arr, string &opt) {
         do {
             userInput(tmp);
             arr.push_back(tmp);
-            tmp.grade.clear();
+            tmp.clearGrade();
             cout << "Enter 'end' if all students are entered or any key to continue: "; cin >> req;
         } while(req != "end");
     }
@@ -27,7 +31,7 @@ void input(deque<student> &arr, string &opt) {
     }
     else if(opt == "rf") fileInput(arr);
 }
-void output(deque<student> &arr, string tmp) {
+void output(vector<student> &arr, string tmp) {
     string opt = " ";
     //----------END OF THE PROGRAM----------
     while(opt != "vid" && opt != "med") {
@@ -35,12 +39,12 @@ void output(deque<student> &arr, string tmp) {
     }
     //----------OUTPUT IN CONSOLE----------
     if(tmp == "in") {
-        cout << "-----------------------------------------------------------\n";
-        cout << left << setw(10) << "Vardas" << left << setw(14) << "Pavarde" << left << setw(12) << "Galutinis (Vid.) / Galutinis (Med.)\n";
-        cout << "-----------------------------------------------------------\n";
-        for(auto &i : arr) {
-            opt == "vid" ? printf("%-9s %-13s %-19.2f \n", i.name.c_str(), i.surname.c_str(), medium(i)) : printf("%-9s %-13s %23.2f \n", i.name.c_str(), i.surname.c_str(), median(i));
-        }
+        // cout << "-----------------------------------------------------------\n";
+        // cout << left << setw(10) << "Vardas" << left << setw(14) << "Pavarde" << left << setw(12) << "Galutinis (Vid.) / Galutinis (Med.)\n";
+        // cout << "-----------------------------------------------------------\n";
+        // for(auto &i : arr) {
+        //     opt == "vid" ? printf("%-9s %-13s %-19.2f \n", i.getName().c_str(), i.getSurname().c_str(), medium(i)) : printf("%-9s %-13s %23.2f \n", i.getName().c_str(), i.getSurname().c_str(), median(i));
+        // }
     }
     //----------OUTPUT IN FILE----------
     else if(tmp == "rf") {
@@ -50,37 +54,31 @@ void output(deque<student> &arr, string tmp) {
         if(opt == "vid") {
             sort(arr.begin(), arr.end(),
             [] (student a, student b) {
-                return a.medium == b.medium ? a.surname > b.surname : a.medium > b.medium;
+                return a.getMedium() == b.getMedium() ? a.getSurname() > b.getSurname() : a.getMedium() > b.getMedium();
             });
         }
         else if(opt == "med") {
             sort(arr.begin(), arr.end(),
             [] (student a, student b) {
-                return a.median == b.median ? a.surname > b.surname : a.median > b.median;
+                return a.getMedian() == b.getMedian() ? a.getSurname() > b.getSurname() : a.getMedian() > b.getMedian();
             });
         }
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> difference = end - start;
         cout << "finished in: " << difference.count() << " s\n";
-        // SPLITTING, strategy 2
-        cout << "Splitting into two deques (2nd strategy)...\n";
+        // SPLITTING, strategy 3
+        cout << "Splitting into two vectors (3nd strategy)...\n";
         start = std::chrono::high_resolution_clock::now();
-        deque<student> fail;
+        vector<student> fail;
         if(opt == "vid") {
-            for(auto &i : arr) {
-                if(arr.back().medium < 5) {
-                    fail.push_back(arr.back());
-                    arr.pop_back();
-                }
-            }
+            auto frac = find_if(arr.begin(), arr.end(), [] (student a) { return a.getMedium() < 5; }); // fracture
+            fail.insert(fail.begin(), frac, arr.end());
+            arr.erase(frac, arr.end());
         }
         else if(opt == "med") {
-            for(auto &i : arr) {
-                if(arr.back().median < 5) {
-                    fail.push_back(arr.back());
-                    arr.pop_back();
-                }
-            }
+            auto frac = find_if(arr.begin(), arr.end(), [] (student a) { return a.getMedian() < 5; });
+            fail.insert(fail.begin(), frac, arr.end());
+            arr.erase(frac, arr.end());
         }
         fail.shrink_to_fit();
         arr.shrink_to_fit();
@@ -103,7 +101,7 @@ void output(deque<student> &arr, string tmp) {
         cout << "Writing into fail.txt...\n";
         start = std::chrono::high_resolution_clock::now();
         for(auto &i : fail) {
-            opt == "vid" ? sprintf(entry, "%-13s %-17s %-18.2f \n", i.name.c_str(), i.surname.c_str(), i.medium) : sprintf(entry, "%-13s %-17s %23.2f \n", i.name.c_str(), i.surname.c_str(), i.median);
+            opt == "vid" ? sprintf(entry, "%-13s %-17s %-18.2f \n", i.getName().c_str(), i.getSurname().c_str(), i.getMedium()) : sprintf(entry, "%-13s %-17s %23.2f \n", i.getName().c_str(), i.getSurname().c_str(), i.getMedian());
             failRow += entry;
         }
         fail.clear();
@@ -115,7 +113,7 @@ void output(deque<student> &arr, string tmp) {
         cout << "Writing into pass.txt...\n";
         start = std::chrono::high_resolution_clock::now();
         for(auto &i : arr) {
-            opt == "vid" ? sprintf(entry, "%-13s %-17s %-18.2f \n", i.name.c_str(), i.surname.c_str(), i.medium) : sprintf(entry, "%-13s %-17s %23.2f \n", i.name.c_str(), i.surname.c_str(), i.median);
+            opt == "vid" ? sprintf(entry, "%-13s %-17s %-18.2f \n", i.getName().c_str(), i.getSurname().c_str(), i.getMedium()) : sprintf(entry, "%-13s %-17s %23.2f \n", i.getName().c_str(), i.getSurname().c_str(), i.getMedian());
             passRow += entry;
         }
         arr.clear();
@@ -126,7 +124,7 @@ void output(deque<student> &arr, string tmp) {
         cout << "finished in: " << difference.count() << " s\n";
     }
 }
-void fileInput(deque<student> &arr) {
+void fileInput(vector<student> &arr) {
     stringstream buf;   // buffer
     ifstream     in;    // input
     student      tmp;   // temporary
@@ -147,15 +145,17 @@ void fileInput(deque<student> &arr) {
         int cnt = count(row.begin(), row.end(), 'N'); // searching for the amount of homework
         while(buf) {
             if(!buf.eof()) {
-                buf >> tmp.name >> tmp.surname;
+                buf >> row; tmp.setName(row);
+                buf >> row; tmp.setSurname(row);
                 for(int i = 0; i < cnt; i ++) {
                     buf >> grade;
-                    tmp.grade.push_back(grade);
+                    tmp.setGrade(grade);
                 }
-                buf >> tmp.exam;
-                tmp.medium = medium(tmp);
-                tmp.median = median(tmp);
-                tmp.grade.clear();
+                buf >> grade;
+                tmp.setExam(grade);
+                tmp.setMedium(medium(tmp));
+                tmp.setMedian(median(tmp));
+                tmp.clearGrade();
                 arr.push_back(tmp);
             }
             else break;
@@ -172,59 +172,57 @@ void userInput(student &tmp) {
     string opt = " ";   // option
     int    sum = 0,     // entered grade
            grd;         // sum of entered grades
-    cout << "Enter the student's name and surname: "; cin >> tmp.name >> tmp.surname;
+    cout << "Enter the student's name and surname: "; cin >> opt; tmp.setName(opt); cin >> opt; tmp.setSurname(opt);
     cout << "Would you like to randomize the grades (type 'ran') or enter yourself? (any key to continue): "; cin >> opt;
     if(opt != "ran") {
-        cout << "Enter the exam grade: "; cin >> tmp.exam;
-        while(cin.fail() || tmp.exam < 0 || tmp.exam > 10) {
+        cout << "Enter the exam grade: "; cin >> grd; tmp.setExam(grd);
+        while(cin.fail() || tmp.getExam() < 0 || tmp.getExam() > 10) {
             cin.clear();
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            cout << "Incorrect form. Try again: "; cin >> tmp.exam;
+            cout << "Incorrect form. Try again: "; cin >> grd; tmp.setExam(grd);
         }
         cout << "Enter the grades (any other symbol to stop): ";
         while(cin >> grd && grd >= 0 && grd <= 10) {
-            if(tmp.grade.size() >= max) {
+            if(tmp.getGrade().size() >= max) {
                 cout << "You can enter a maximum of " << max << " grades per student.\n";
                 break;
             }
-            tmp.grade.push_back(grd);
+            tmp.setGrade(grd);
             sum += grd;
         }
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         if(sum == 0) {
             cout << "At least one grade that is not a symbol and higher than 0 must be entered! Try from the beginning.\n";
-            tmp.grade.clear();
+            tmp.clearGrade();
             userInput(tmp); // recursion
         }
-        else cout << "In total " << tmp.grade.size() << " grades entered.\n";
+        else cout << "In total " << tmp.getGrade().size() << " grades entered.\n";
     }
     else randInput(tmp);
 }
 void randInput(student &tmp) {
     int cnt = 0, // counter
         grd = 0; // generated grade
-    tmp.exam = randomize(1, 10); // generated grade in a ten point system without 0 (student must participate in an exam)
-    cout << "The exam grade: " << tmp.exam << "\n";
+    tmp.setExam(randomize(1, 10)); // generated grade in a ten point system without 0 (student must participate in an exam)
+    cout << "The exam grade: " << tmp.getExam() << "\n";
     cnt = randomize(1, max);
     cout << "The grades: ";
     for(int i = 0; i < cnt; i ++) {
         grd = randomize(0, 10); // generated grade in a ten point system with 0 (student may not submit his homework)
-        tmp.grade.push_back(grd);
+        tmp.setGrade(grd);
         i != cnt - 1 ? cout << grd << " " : cout << grd << "\n";
     }
 }
 double medium(student &tmp) {
-    int sum = 0;
-    for(int i = 0; i < tmp.grade.size(); i ++) {
-        sum += tmp.grade[i];
-    }
-    return 0.4 * ((double)sum / tmp.grade.size()) + 0.6 * tmp.exam;
+    vector<int> grd = tmp.getGrade(); // temporary copy of grades
+    int         sum = accumulate(grd.begin(), grd.end(), sum); // computing the sum of the given initial value and the elements in the given range
+    return 0.4 * ((double)sum / grd.size()) + 0.6 * tmp.getExam();
 }
 double median(student &tmp) {
-    deque<int> grd = tmp.grade; // temporary copy of grades
+    vector<int> grd = tmp.getGrade(); // temporary copy of grades
     sort(grd.begin(), grd.end());
-    return grd.size() % 2 == 0 ? 0.4 * ((grd[grd.size() / 2 - 1] + grd[grd.size() / 2]) / 2.0) + 0.6 * tmp.exam : 0.4 * grd[grd.size() / 2] + 0.6 * tmp.exam;
+    return grd.size() % 2 == 0 ? 0.4 * ((grd[grd.size() / 2 - 1] + grd[grd.size() / 2]) / 2.0) + 0.6 * tmp.getExam() : 0.4 * grd[grd.size() / 2] + 0.6 * tmp.getExam();
 }
 int randomize(int beg, int end) { // beginning, ending
     mt19937 mt(static_cast<long unsigned int>(std::chrono::high_resolution_clock::now().time_since_epoch().count()));

@@ -15,7 +15,7 @@ int main() {
     //----------FREE UP THE MEMORY----------
     cout << "\nFreeing memory...\nEnd of the program.\n";
     for(int i = 0; i < arr.size(); i ++) {
-        arr[i].grade.clear();
+        arr[i].clearGrade();
     }
     arr.clear();
 
