@@ -2,17 +2,48 @@
 
 **Installation process:**
 
-Clone my GitHub repository: `git clone https://github.com/Matas28731449/oop-ex-1.git` ;
+Clone my GitHub repository: `git clone https://github.com/Matas28731449/oop-ex-2.git` ;
 
-Navigate to cloned repository: `cd {folder name}/oop-ex-1/` ;
-
-Choose your desired realization: `cd {strategy1 / strategy2}/{deque / list / vector}` ;
+Navigate to cloned repository: `cd {folder name}/oop-ex-2/vector` ;
 
 Compile the files via Makefile: `make` ;
 
 Run the program: `./main` ;
 
 Follow the instructions, <b style="color: blue">happy using!</b>
+
+**v1.1**
+
+Updates from previous version:
+
+- `Applied classes` throughout the code (removed structs) ;
+
+- `Performance analysis` of the program was `performed` with `std::vector` container and the `fastest strategy` :
+
+*3rd strategy, std::vector container, -O3 flag (1.000.000 students):*
+
+| Type / Time | Program   |
+|-------------|-----------|
+| *class*     | 6.1236323 |
+| *struct*    | 5.6552146 |
+
+*3rd strategy, std::vector container, -O3 flag (10.000.000 students):*
+
+| Type / Time | Program   |
+|-------------|-----------|
+| *class*     | 61.342183 |
+| *struct*    | 59.114327 |
+
+- `Experimental analysis` was `performed` depending on compiler `optimization flags`:
+
+*Optimization flags analysis (10.000.000 students):*
+
+| Flag / Time | Program    |
+|-------------|------------|
+|             | 209.304579 |
+| -O1         | 113.836258 |
+| -O2         | 62.164601  |
+| -O3         | 61.414359  |
 
 **v1.0.1**
 
