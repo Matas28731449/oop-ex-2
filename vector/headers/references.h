@@ -11,9 +11,10 @@ class student {
                     surname;
         vector<int> grade;
         int         exam;
-        double      medium,
+        float       medium,
                     median;
     public:
+        // default constructor
         student() : name(""), surname(""), exam(0), medium(0), median(0) { }
         // getters
         inline string getName() const { return name; }
@@ -24,12 +25,53 @@ class student {
         inline double getMedian() const { return median; }
         // setters
         void setName(string a) { name = a; }
-        void setSurname(string a) { surname = a;}
+        void setSurname(string a) { surname = a; }
         void setGrade(int a);
         void clearGrade() { grade.clear(); }
         void setExam(int a) { exam = a; }
         void setMedium(double a) { medium = a; }
-        void setMedian(double a) { median = a; } 
+        void setMedian(double a) { median = a; }
+        // rule of five
+        student(const student &other) { // copy constructor
+            this->name = other.name;
+            this->surname = other.surname;
+            this->grade = other.grade;
+            this->exam = other.exam;
+            this->medium = other.medium;
+            this->median = other.median;
+        }
+        student(student &&other) { // move constructor
+            this->name = other.name;
+            this->surname = other.surname;
+            this->grade = other.grade;
+            this->exam = other.exam;
+            this->medium = other.medium;
+            this->median = other.median;
+        }
+        student &operator=(const student &other) { // copy assignment
+            if(this != &other) {
+                this->name = other.name;
+                this->surname = other.surname;
+                this->grade = other.grade;
+                this->exam = other.exam;
+                this->medium = other.medium;
+                this->median = other.median;
+            }
+            return *this;
+        }
+        student &operator=(student &&other) { // move assignment
+            if(this != &other) {
+                this->name = other.name;
+                this->surname = other.surname;
+                this->grade = other.grade;
+                this->exam = other.exam;
+                this->medium = other.medium;
+                this->median = other.median;
+                other = student();
+            }
+            return *this;
+        }
+        ~student() { clearGrade(); } // destructor
 };
 
 void input(vector<student> &arr, string &opt);
