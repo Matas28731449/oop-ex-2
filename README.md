@@ -12,6 +12,12 @@ Run the program: `./main` ;
 
 Follow the instructions, <b style="color: blue">happy using!</b>
 
+**v1.2**
+
+Updates from previous version:
+
+- Expanded main class capabilities, initialized `"rule of five"` .
+
 **v1.1**
 
 Updates from previous version:
