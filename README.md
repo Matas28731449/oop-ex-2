@@ -12,6 +12,12 @@ Run the program: `./main` ;
 
 Follow the instructions, <b style="color: blue">happy using!</b>
 
+**v1.5**
+
+Updates from previous version:
+
+- Created base class `person` and a derived class `student` .
+
 **v1.2**
 
 Updates from previous version:
