@@ -1,5 +1,5 @@
-#include "headers/library.h"
-#include "headers/references.h"
+#include "library.h"
+#include "references.h"
 
 int main() {
     vector<student> arr;       // array

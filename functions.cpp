@@ -1,4 +1,4 @@
-#include "headers/references.h"
+#include "references.h"
 
 void student::setGrade(int a) {
     grade.reserve(grade.size() + 1);

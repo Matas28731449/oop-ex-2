@@ -1,0 +1,95 @@
+\doxysection{references.\+h}
+\hypertarget{references_8h_source}{}\label{references_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ REFERENCES\_H}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ REFERENCES\_H}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}library.h"{}}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00006}00006\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ max\ =\ 100;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00008}\mbox{\hyperlink{classperson}{00008}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classperson}{person}}\ \{}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00009}00009\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ name,}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ surname;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classperson}{person}}()\ :\ name(\textcolor{stringliteral}{"{}"{}}),\ surname(\textcolor{stringliteral}{"{}"{}})\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classperson}{person}}(\textcolor{keywordtype}{string}\ a,\ \textcolor{keywordtype}{string}\ b)\ \{\ name\ =\ a;\ surname\ =\ b;\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classperson}{\string~person}}()\ \{\ name.clear();\ surname.clear();\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00015}00015\ \};}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00017}\mbox{\hyperlink{classstudent}{00017}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classstudent}{student}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classperson}{person}}\ \{}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ vector<int>\ grade;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ exam;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ medium,}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ median;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstudent}{student}}()\ :\ exam(0),\ medium(0),\ median(0)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00027}\mbox{\hyperlink{classstudent_a970bd56fdd4715bda92a52660a4e8806}{00027}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classstudent_a970bd56fdd4715bda92a52660a4e8806}{getName}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ name;\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00029}\mbox{\hyperlink{classstudent_a7dbeed91f1b4e94ed91108662fe27e62}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classstudent_a7dbeed91f1b4e94ed91108662fe27e62}{getSurname}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ surname;\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00031}\mbox{\hyperlink{classstudent_ae34f5f1c49edab1cc5d02f0b3d4493aa}{00031}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ vector<int>\ \mbox{\hyperlink{classstudent_ae34f5f1c49edab1cc5d02f0b3d4493aa}{getGrade}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ grade;\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00033}\mbox{\hyperlink{classstudent_a2f1d5d68ef451f44635e302afbb93a38}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classstudent_a2f1d5d68ef451f44635e302afbb93a38}{getExam}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ exam;\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00035}\mbox{\hyperlink{classstudent_a89add856468a682d801711e9fa0250af}{00035}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classstudent_a89add856468a682d801711e9fa0250af}{getMedium}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ medium;\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00037}\mbox{\hyperlink{classstudent_aa52f89bf1cc55d963684a04a70163431}{00037}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classstudent_aa52f89bf1cc55d963684a04a70163431}{getMedian}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ median;\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00040}\mbox{\hyperlink{classstudent_a469ecead9dd45f50f80004230a04a881}{00040}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classstudent_a469ecead9dd45f50f80004230a04a881}{setName}}(\textcolor{keywordtype}{string}\ a)\ \{\ name\ =\ a;\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00042}\mbox{\hyperlink{classstudent_a8858762a5d549797d9d3535e7d239328}{00042}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classstudent_a8858762a5d549797d9d3535e7d239328}{setSurname}}(\textcolor{keywordtype}{string}\ a)\ \{\ surname\ =\ a;\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classstudent_a0bf926febaee6fc413f3823c290c8d67}{setGrade}}(\textcolor{keywordtype}{int}\ a);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00046}\mbox{\hyperlink{classstudent_aee1b8524e1131f9a6eebec775be2b45c}{00046}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classstudent_aee1b8524e1131f9a6eebec775be2b45c}{clearGrade}}()\ \{\ grade.clear();\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00048}\mbox{\hyperlink{classstudent_a493d92ffc31cc60662bd69fe79be4668}{00048}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classstudent_a493d92ffc31cc60662bd69fe79be4668}{setExam}}(\textcolor{keywordtype}{int}\ a)\ \{\ exam\ =\ a;\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00050}\mbox{\hyperlink{classstudent_a2720c2c735b9b20fc3b1ad4d8141e5be}{00050}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classstudent_a2720c2c735b9b20fc3b1ad4d8141e5be}{setMedium}}(\textcolor{keywordtype}{double}\ a)\ \{\ medium\ =\ a;\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00052}\mbox{\hyperlink{classstudent_ad76f1cdcd93bfbdbad9e4da07f3f7ffe}{00052}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classstudent_ad76f1cdcd93bfbdbad9e4da07f3f7ffe}{setMedian}}(\textcolor{keywordtype}{double}\ a)\ \{\ median\ =\ a;\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstudent}{student}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classstudent}{student}}\ \&other)\ :\ \mbox{\hyperlink{classperson}{person}}(other.name,\ other.surname)\ \{}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>grade\ =\ std::move(other.grade);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>exam\ =\ other.exam;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>medium\ =\ other.medium;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>median\ =\ other.median;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstudent}{student}}(\mbox{\hyperlink{classstudent}{student}}\ \&\&other)\ :\ \mbox{\hyperlink{classperson}{person}}(other.name,\ other.surname)\ \{}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>grade\ =\ std::move(other.grade);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>exam\ =\ other.exam;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>medium\ =\ other.medium;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>median\ =\ other.median;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstudent}{student}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classstudent}{student}}\ \&other)\ \{}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\textcolor{keyword}{this}\ !=\ \&other)\ \{}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>name\ =\ other.name;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>surname\ =\ other.surname;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>grade\ =\ std::move(other.grade);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>exam\ =\ other.exam;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>medium\ =\ other.medium;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>median\ =\ other.median;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstudent}{student}}\ \&operator=(\mbox{\hyperlink{classstudent}{student}}\ \&\&other)\ \{}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\textcolor{keyword}{this}\ !=\ \&other)\ \{}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>name\ =\ other.name;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>surname\ =\ other.surname;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>grade\ =\ std::move(other.grade);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>exam\ =\ other.exam;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>medium\ =\ other.medium;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>median\ =\ other.median;}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other.\string~student();}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classstudent}{\string~student}}()\ \{\ \mbox{\hyperlink{classstudent_aee1b8524e1131f9a6eebec775be2b45c}{clearGrade}}();\ \}}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00090}00090\ \};}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00092}00092\ \textcolor{keywordtype}{void}\ input(vector<student>\ \&arr,\ \textcolor{keywordtype}{string}\ \&opt);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00093}00093\ \textcolor{keywordtype}{void}\ output(vector<student>\ \&arr,\ \textcolor{keywordtype}{string}\ tmp);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00094}00094\ \textcolor{keywordtype}{void}\ fileInput(vector<student>\ \&arr);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00095}00095\ \textcolor{keywordtype}{void}\ userInput(\mbox{\hyperlink{classstudent}{student}}\ \&tmp);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00096}00096\ \textcolor{keywordtype}{void}\ randInput(\mbox{\hyperlink{classstudent}{student}}\ \&tmp);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00097}00097\ \textcolor{keywordtype}{double}\ medium(\mbox{\hyperlink{classstudent}{student}}\ \&tmp);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00098}00098\ \textcolor{keywordtype}{double}\ median(\mbox{\hyperlink{classstudent}{student}}\ \&tmp);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00099}00099\ \textcolor{keywordtype}{bool}\ comparison(\mbox{\hyperlink{classstudent}{student}}\ \&a,\ \mbox{\hyperlink{classstudent}{student}}\ \&b);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00100}00100\ \textcolor{keywordtype}{int}\ randomize(\textcolor{keywordtype}{int}\ beg,\ \textcolor{keywordtype}{int}\ end);}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00101}00101\ \textcolor{keywordtype}{void}\ fileGenerator();}
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{references_8h_source_l00103}00103\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

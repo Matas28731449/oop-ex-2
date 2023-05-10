@@ -1,10 +1,10 @@
-# oop ex. 1
+# oop ex. 2
 
 **Installation process:**
 
 Clone my GitHub repository: `git clone https://github.com/Matas28731449/oop-ex-2.git` ;
 
-Navigate to cloned repository: `cd {folder name}/oop-ex-2/vector` ;
+Navigate to cloned repository: `cd {folder name}/oop-ex-2` ;
 
 Compile the files via Makefile: `make` ;
 
