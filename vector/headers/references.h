@@ -9,9 +9,16 @@ class person {
     protected:
         string name,
                surname;
+    public:
         person() : name(""), surname("") { }
-        person(string a, string b) { name = a; surname = b; }
-        virtual ~person() { name.clear(); surname.clear(); }
+
+        inline string getName() const { return name; }
+        inline string getSurname() const { return surname; }
+
+        virtual void setName(string a) = 0;
+        virtual void setSurname(string a) = 0;
+
+        ~person() { }
 };
 
 class student : public person {
@@ -38,13 +45,17 @@ class student : public person {
         void setMedium(double a) { medium = a; }
         void setMedian(double a) { median = a; }
 
-        student(const student &other) : person(other.name, other.surname) {
+        student(const student &other) {
+            this->name = other.name;
+            this->surname = other.surname;
             this->grade = std::move(other.grade);
             this->exam = other.exam;
             this->medium = other.medium;
             this->median = other.median;
         }
-        student(student &&other) : person(other.name, other.surname) {
+        student(student &&other) {
+            this->name = other.name;
+            this->surname = other.surname;
             this->grade = std::move(other.grade);
             this->exam = other.exam;
             this->medium = other.medium;
