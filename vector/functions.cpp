@@ -1,9 +1,9 @@
-#include "references.h"
+#include "headers/references.h"
 
-void student::setGrade(int a) {
-    grade.reserve(grade.size() + 1);
-    grade.push_back(a);
-}
+// void student::setGrade(int a) {
+//     grade.reserve(grade.size() + 1);
+//     grade.push_back(a);
+// }
 void input(vector<student> &arr, string &opt) {
     student tmp;
     string  req = " ";
@@ -39,12 +39,12 @@ void output(vector<student> &arr, string tmp) {
     }
     //----------OUTPUT IN CONSOLE----------
     if(tmp == "in") {
-        // cout << "-----------------------------------------------------------\n";
-        // cout << left << setw(10) << "Vardas" << left << setw(14) << "Pavarde" << left << setw(12) << "Galutinis (Vid.) / Galutinis (Med.)\n";
-        // cout << "-----------------------------------------------------------\n";
-        // for(auto &i : arr) {
-        //     opt == "vid" ? printf("%-9s %-13s %-19.2f \n", i.getName().c_str(), i.getSurname().c_str(), medium(i)) : printf("%-9s %-13s %23.2f \n", i.getName().c_str(), i.getSurname().c_str(), median(i));
-        // }
+        cout << "-----------------------------------------------------------\n";
+        cout << left << setw(10) << "Vardas" << left << setw(14) << "Pavarde" << left << setw(12) << "Galutinis (Vid.) / Galutinis (Med.)\n";
+        cout << "-----------------------------------------------------------\n";
+        for(auto &i : arr) {
+            opt == "vid" ? printf("%-9s %-13s %-19.2f \n", i.getName().c_str(), i.getSurname().c_str(), medium(i)) : printf("%-9s %-13s %23.2f \n", i.getName().c_str(), i.getSurname().c_str(), median(i));
+        }
     }
     //----------OUTPUT IN FILE----------
     else if(tmp == "rf") {

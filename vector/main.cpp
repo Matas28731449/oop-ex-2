@@ -1,5 +1,5 @@
-#include "library.h"
-#include "references.h"
+#include "headers/library.h"
+#include "headers/references.h"
 
 int main() {
     vector<student> arr;       // array
@@ -11,7 +11,7 @@ int main() {
     output(arr, opt);
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> difference = end - start;
-    cout << "Program time: " << difference.count() << " s\n";
+    cout << "\nProgram time: " << difference.count() << " s\n";
 
     return 0;
 }

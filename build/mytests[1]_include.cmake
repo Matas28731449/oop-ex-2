@@ -1,0 +1,5 @@
+if(EXISTS "/Users/mataslekavicius/Desktop/Objektinis programavimas/oop-ex-2/build/mytests[1]_tests.cmake")
+  include("/Users/mataslekavicius/Desktop/Objektinis programavimas/oop-ex-2/build/mytests[1]_tests.cmake")
+else()
+  add_test(mytests_NOT_BUILT mytests_NOT_BUILT)
+endif()

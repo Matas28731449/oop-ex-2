@@ -9,24 +9,29 @@ class person {
     protected:
         string name,
                surname;
+    public:
         person() : name(""), surname("") { }
-        person(string a, string b) { name = a; surname = b; }
-        virtual ~person() { name.clear(); surname.clear(); }
+
+        //! Get student's name.
+        inline string getName() const { return name; }
+        //! Get student's surname.
+        inline string getSurname() const { return surname; }
+
+        virtual void setName(string a) = 0;
+        virtual void setSurname(string a) = 0;
+
+        ~person() { }
 };
 
 class student : public person {
     private:
         vector<int> grade;
         int         exam;
-        float       medium,
+        double      medium,
                     median;
     public:
         student() : exam(0), medium(0), median(0) { }
 
-        //! Get student's name.
-        inline string getName() const { return name; }
-        //! Get student's surname.
-        inline string getSurname() const { return surname; }
         //! Get student's grades.
         inline vector<int> getGrade() const { return grade; }
         //! Get student's exam mark.
@@ -41,7 +46,10 @@ class student : public person {
         //! Set student's surname.
         void setSurname(string a) { surname = a; }
         //! Set student's grade.
-        void setGrade(int a);
+        void setGrade(int a) {
+            grade.reserve(grade.size() + 1);
+            grade.push_back(a);
+        }
         //! Clear all student's grades.
         void clearGrade() { grade.clear(); }
         //! Set student's exam mark.
@@ -51,13 +59,17 @@ class student : public person {
         //! Set student's final mark (calculated by median).
         void setMedian(double a) { median = a; }
 
-        student(const student &other) : person(other.name, other.surname) {
+        student(const student &other) {
+            this->name = other.name;
+            this->surname = other.surname;
             this->grade = std::move(other.grade);
             this->exam = other.exam;
             this->medium = other.medium;
             this->median = other.median;
         }
-        student(student &&other) : person(other.name, other.surname) {
+        student(student &&other) {
+            this->name = other.name;
+            this->surname = other.surname;
             this->grade = std::move(other.grade);
             this->exam = other.exam;
             this->medium = other.medium;
@@ -96,7 +108,6 @@ void userInput(student &tmp);
 void randInput(student &tmp);
 double medium(student &tmp);
 double median(student &tmp);
-bool comparison(student &a, student &b);
 int randomize(int beg, int end);
 void fileGenerator();
 
