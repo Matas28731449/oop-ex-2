@@ -1,0 +1,328 @@
+\chapter{oop ex. 2}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{oop ex. 2@{oop ex. 2}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+ {\bfseries{Installation process\+:}}
+
+Clone my Git\+Hub repository\+: {\ttfamily git clone \href{https://github.com/Matas28731449/oop-ex-2.git}{\texttt{ https\+://github.\+com/\+Matas28731449/oop-\/ex-\/2.\+git}}} ;
+
+Navigate to cloned repository\+: {\ttfamily cd \{folder name\}/oop-\/ex-\/2} ;
+
+Compile the files via Makefile\+: {\ttfamily make} ;
+
+Run the program\+: {\ttfamily ./main} ;
+
+Follow the instructions, {\bfseries{happy using!}}
+
+{\bfseries{v1.\+5}}
+
+Updates from previous version\+:
+
+
+\begin{DoxyItemize}
+\item Created base class {\ttfamily person} and a derived class {\ttfamily student} .
+\end{DoxyItemize}
+
+{\bfseries{v1.\+2}}
+
+Updates from previous version\+:
+
+
+\begin{DoxyItemize}
+\item Expanded main class capabilities, initialized {\ttfamily \"{}rule of five\"{}} .
+\end{DoxyItemize}
+
+{\bfseries{v1.\+1}}
+
+Updates from previous version\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Applied classes} throughout the code (removed structs) ;
+\item {\ttfamily Performance analysis} of the program was {\ttfamily performed} with {\ttfamily std\+::vector} container and the {\ttfamily fastest strategy} \+:
+\end{DoxyItemize}
+
+{\itshape 3rd strategy, std\+::vector container, -\/O3 flag (1.\+000.\+000 students)\+:}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program    }\\\cline{1-2}
+\endhead
+{\itshape class}   &6.\+1236323    \\\cline{1-2}
+{\itshape struct}   &5.\+6552146   \\\cline{1-2}
+\end{longtabu}
+
+
+{\itshape 3rd strategy, std\+::vector container, -\/O3 flag (10.\+000.\+000 students)\+:}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program    }\\\cline{1-2}
+\endhead
+{\itshape class}   &61.\+342183    \\\cline{1-2}
+{\itshape struct}   &59.\+114327   \\\cline{1-2}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Experimental analysis} was {\ttfamily performed} depending on compiler {\ttfamily optimization flags}\+:
+\end{DoxyItemize}
+
+{\itshape Optimization flags analysis (10.\+000.\+000 students)\+:}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Flag / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ / .exe size    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Flag / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ / .exe size    }\\\cline{1-3}
+\endhead
+&209.\+304579   &215KB    \\\cline{1-3}
+-\/O1   &113.\+836258   &145KB    \\\cline{1-3}
+-\/O2   &62.\+164601   &118KB    \\\cline{1-3}
+-\/O3   &61.\+414359   &118KB   \\\cline{1-3}
+\end{longtabu}
+
+
+{\bfseries{v1.\+0.\+1}}
+
+Updates from previous version\+:
+
+
+\begin{DoxyItemize}
+\item Strategy 3 has been added with the {\ttfamily specified algorithms} ;
+\end{DoxyItemize}
+
+{\itshape 3rd strategy (10.\+000.\+000 students)\+:}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting    }\\\cline{1-2}
+\endhead
+{\itshape std\+::deque}   &0.\+700288    \\\cline{1-2}
+{\itshape std\+::list}   &3.\+86502    \\\cline{1-2}
+{\itshape std\+::vector}   &0.\+845625   \\\cline{1-2}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item The {\ttfamily 3rd strategy} is {\ttfamily faster using std\+::vector} compared to the previous two .
+\end{DoxyItemize}
+
+{\bfseries{v1.\+0}}
+
+Splitting into two containers uses 2 new strategies\+:
+
+
+\begin{DoxyItemize}
+\item Strategy 1 creates {\ttfamily two} independent {\ttfamily containers} and splits students between them (memory consuming) ;
+\item Strategy 2 {\ttfamily reuses} the {\ttfamily main container} for unsuccessful students and {\ttfamily creates a single container} for successful students ;
+\end{DoxyItemize}
+
+{\itshape 2nd strategy (10.\+000.\+000 students)\+:}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting    }\\\cline{1-2}
+\endhead
+{\itshape std\+::deque}   &0.\+273107    \\\cline{1-2}
+{\itshape std\+::list}   &1.\+88668    \\\cline{1-2}
+{\itshape std\+::vector}   &2.\+16433   \\\cline{1-2}
+\end{longtabu}
+
+
+{\itshape 1st strategy (10.\+000.\+000 students)\+:}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting    }\\\cline{1-2}
+\endhead
+{\itshape std\+::deque}   &0.\+954878    \\\cline{1-2}
+{\itshape std\+::list}   &3.\+99397    \\\cline{1-2}
+{\itshape std\+::vector}   &2.\+75432   \\\cline{1-2}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item The {\ttfamily 2nd strategy} is more rational, since the program {\ttfamily performs faster} and consumes {\ttfamily 2x less memory} .
+\end{DoxyItemize}
+
+{\bfseries{v0.\+5}}
+
+Performance analysis of the program was performed with {\ttfamily std\+::vector}, {\ttfamily std\+::list}, {\ttfamily std\+::deque} containers\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Three} separate {\ttfamily programs} have been created with their {\ttfamily corresponding containers} ;
+\item Tested with my personal computer ({\ttfamily 1,6 GHz} Dual-\/\+Core Intel Core {\ttfamily i5} / {\ttfamily 8 GB} 1600 MHz DDR3 / 128 GB {\ttfamily SSD}) \+:
+\end{DoxyItemize}
+
+{\itshape std\+::deque}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Size / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Reading   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sorting   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Size / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Reading   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sorting   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting    }\\\cline{1-5}
+\endhead
+1000   &0.\+011421   &0.\+009889   &0.\+001336   &0.\+000195    \\\cline{1-5}
+10000   &0.\+087951   &0.\+073614   &0.\+013391   &0.\+000944    \\\cline{1-5}
+100000   &1.\+051615   &0.\+884327   &0.\+148934   &0.\+018354    \\\cline{1-5}
+1000000   &7.\+068945   &5.\+49479   &1.\+47893   &0.\+095225    \\\cline{1-5}
+10000000   &59.\+157223   &40.\+5008   &17.\+6992   &0.\+957223   \\\cline{1-5}
+\end{longtabu}
+
+
+{\itshape std\+::list}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Size / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Reading   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sorting   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Size / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Reading   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sorting   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting    }\\\cline{1-5}
+\endhead
+1000   &0.\+013624   &0.\+012653   &0.\+000671   &0.\+000299    \\\cline{1-5}
+10000   &0.\+111652   &0.\+100006   &0.\+008476   &0.\+003169    \\\cline{1-5}
+100000   &1.\+039293   &0.\+917151   &0.\+089819   &0.\+032322    \\\cline{1-5}
+1000000   &8.\+727799   &7.\+159   &1.\+24516   &0.\+323639    \\\cline{1-5}
+10000000   &73.\+5484   &53.\+7107   &16.\+5857   &3.\+252   \\\cline{1-5}
+\end{longtabu}
+
+
+{\itshape std\+::vector}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Size / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Reading   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sorting   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Size / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Reading   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sorting   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting    }\\\cline{1-5}
+\endhead
+1000   &0.\+017851   &0.\+017234   &0.\+000417   &0.\+000199    \\\cline{1-5}
+10000   &0.\+092879   &0.\+083231   &0.\+007869   &0.\+001778    \\\cline{1-5}
+100000   &0.\+768513   &0.\+658374   &0.\+08578   &0.\+024359    \\\cline{1-5}
+1000000   &6.\+724573   &5.\+54213   &0.\+984382   &0.\+198061    \\\cline{1-5}
+10000000   &56.\+9782   &41.\+863   &12.\+1023   &3.\+0129   \\\cline{1-5}
+\end{longtabu}
+
+
+{\bfseries{v0.\+4}}
+
+Key functions have been developed such as\+:
+
+
+\begin{DoxyItemize}
+\item Random data {\ttfamily file generator} has been created ;
+\item The data is {\ttfamily sorted} into two categories (fail, when {\ttfamily final mark \texorpdfstring{$<$}{<} 5}, pass, when {\ttfamily final mark \texorpdfstring{$>$}{>}= 5}) when reading from file ;
+\item Sorted data is {\ttfamily outputted} into two {\ttfamily separate files} (fail.\+txt, pass.\+txt) ;
+\item {\ttfamily Performance analysis} of the program was {\ttfamily performed} with randomly generated data \+:
+\end{DoxyItemize}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{8}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Size / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Generating   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Reading   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sorting   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Writting {\ttfamily fail.\+txt}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Writting {\ttfamily pass.\+txt}    }\\\cline{1-8}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Size / Time   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Generating   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Program   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Reading   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sorting   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Splitting   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Writting {\ttfamily fail.\+txt}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Writting {\ttfamily pass.\+txt}    }\\\cline{1-8}
+\endhead
+1000   &0.\+008479   &0.\+015679   &0.\+008904   &0.\+000831   &0.\+000393   &0.\+000965   &0.\+001039    \\\cline{1-8}
+10000   &0.\+059719   &0.\+079423   &0.\+056246   &0.\+009038   &0.\+002437   &0.\+006754   &0.\+004946    \\\cline{1-8}
+100000   &0.\+819158   &0.\+737159   &0.\+539071   &0.\+079809   &0.\+020125   &0.\+048631   &0.\+049521    \\\cline{1-8}
+1000000   &5.\+41331   &6.\+914894   &4.\+99238   &0.\+882479   &0.\+171598   &0.\+424164   &0.\+444273    \\\cline{1-8}
+10000000   &44.\+9806   &75.\+81039   &54.\+6486   &11.\+4163   &2.\+76528   &3.\+53575   &3.\+44446   \\\cline{1-8}
+\end{longtabu}
+
+
+{\bfseries{v0.\+3}}
+
+Updates from previous version\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Refactored} the {\ttfamily code}\+: created {\ttfamily separate headers} for functions and references ;
+\item {\ttfamily Makefile} has been created for easier multiple file compiling ;
+\item Applied {\ttfamily exception handling} when trying to read from file .
+\end{DoxyItemize}
+
+{\bfseries{v0.\+2}}
+
+Key functions have been developed such as\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Reading} from a {\ttfamily file} (the user can indicate which file to read from) ;
+\item Students are {\ttfamily sorted} by name (or surname) when reading from a {\ttfamily file} ;
+\item Added a {\ttfamily timer to track the work} of various functions when reading from a file ;
+\item {\ttfamily Optimized} other {\ttfamily functions} from the previous version .
+\end{DoxyItemize}
+
+{\bfseries{v0.\+1.\+1}}
+
+Updates from previous version\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Dynamism applied} in {\itshape v0.\+1 with arrays} when entering students (it is no longer necessary to specify the initial number of students to be entered) ;
+\item Standard {\ttfamily sort()} function and {\ttfamily ? \+:} operator {\ttfamily applied} when calculating the median ;
+\item {\ttfamily Improved randomization} function to generate appropriately distributed grades .
+\end{DoxyItemize}
+
+{\bfseries{v0.\+1}}
+
+Key functions have been developed such as\+:
+
+
+\begin{DoxyItemize}
+\item The user can {\ttfamily enter} the data {\ttfamily manually} or let the system {\ttfamily randomly} select the required input ;
+\item The user can {\ttfamily select} to calculate the final mark using either {\ttfamily the mean} or {\ttfamily median} . 
+\end{DoxyItemize}

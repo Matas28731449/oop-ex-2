@@ -1,0 +1,288 @@
+\doxysection{functions.\+cpp}
+\hypertarget{functions_8cpp_source}{}\label{functions_8cpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}references.h"{}}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00003}\mbox{\hyperlink{classstudent_a0bf926febaee6fc413f3823c290c8d67}{00003}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classstudent_a0bf926febaee6fc413f3823c290c8d67}{student::setGrade}}(\textcolor{keywordtype}{int}\ a)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00004}00004\ \ \ \ \ grade.reserve(grade.size()\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00005}00005\ \ \ \ \ grade.push\_back(a);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00006}00006\ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00007}00007\ \textcolor{keywordtype}{void}\ input(vector<student>\ \&arr,\ \textcolor{keywordtype}{string}\ \&opt)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{classstudent}{student}}\ tmp;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordtype}{string}\ \ req\ =\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00010}00010\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}'in'\ to\ input\ the\ data\ manually\ ;\(\backslash\)n'gf'\ to\ generate\ random\ data\ file\ ;\(\backslash\)n'rf'\ to\ read\ the\ data\ from\ file\ .\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00011}00011\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ your\ choice:\ "{}};\ cin\ >>\ opt;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{while}(cin.fail()\ or\ (opt\ !=\ \textcolor{stringliteral}{"{}in"{}}\ \&\&\ opt\ !=\ \textcolor{stringliteral}{"{}gf"{}}\ \&\&\ opt\ !=\ \textcolor{stringliteral}{"{}rf"{}}))\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Incorrect\ form.\ Try\ again:\ "{}};\ cin\ >>\ opt;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00016}00016\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}(opt\ ==\ \textcolor{stringliteral}{"{}in"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ userInput(tmp);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ arr.push\_back(tmp);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ tmp.\mbox{\hyperlink{classstudent_aee1b8524e1131f9a6eebec775be2b45c}{clearGrade}}();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ 'end'\ if\ all\ students\ are\ entered\ or\ any\ key\ to\ continue:\ "{}};\ cin\ >>\ req;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}(req\ !=\ \textcolor{stringliteral}{"{}end"{}});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(opt\ ==\ \textcolor{stringliteral}{"{}gf"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ fileGenerator();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ 'end'\ to\ stop\ generating\ random\ data\ files\ or\ press\ any\ key\ to\ continue:\ "{}};\ cin\ >>\ req;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}(req\ !=\ \textcolor{stringliteral}{"{}end"{}});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ exit(0);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(opt\ ==\ \textcolor{stringliteral}{"{}rf"{}})\ fileInput(arr);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00034}00034\ \textcolor{keywordtype}{void}\ output(vector<student>\ \&arr,\ \textcolor{keywordtype}{string}\ tmp)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{string}\ opt\ =\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/END\ OF\ THE\ PROGRAM-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{while}(opt\ !=\ \textcolor{stringliteral}{"{}vid"{}}\ \&\&\ opt\ !=\ \textcolor{stringliteral}{"{}med"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}How\ would\ you\ like\ to\ calculate\ the\ final\ mark?\ Type\ 'vid'\ or\ 'med':\ "{}};\ cin\ >>\ opt;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/OUTPUT\ IN\ CONSOLE-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{if}(tmp\ ==\ \textcolor{stringliteral}{"{}in"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cout\ <<\ "{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cout\ <<\ left\ <<\ setw(10)\ <<\ "{}Vardas"{}\ <<\ left\ <<\ setw(14)\ <<\ "{}Pavarde"{}\ <<\ left\ <<\ setw(12)\ <<\ "{}Galutinis\ (Vid.)\ /\ Galutinis\ (Med.)\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cout\ <<\ "{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for(auto\ \&i\ :\ arr)\ \{}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ opt\ ==\ "{}vid"{}\ ?\ printf("{}\%-\/9s\ \%-\/13s\ \%-\/19.2f\ \(\backslash\)n"{},\ i.getName().c\_str(),\ i.getSurname().c\_str(),\ medium(i))\ :\ printf("{}\%-\/9s\ \%-\/13s\ \%23.2f\ \(\backslash\)n"{},\ i.getName().c\_str(),\ i.getSurname().c\_str(),\ median(i));}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/OUTPUT\ IN\ FILE-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tmp\ ==\ \textcolor{stringliteral}{"{}rf"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SORTING}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Sorting\ data...\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(opt\ ==\ \textcolor{stringliteral}{"{}vid"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ sort(arr.begin(),\ arr.end(),}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ []\ (\mbox{\hyperlink{classstudent}{student}}\ a,\ \mbox{\hyperlink{classstudent}{student}}\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ a.getMedium()\ ==\ b.getMedium()\ ?\ a.getSurname()\ >\ b.getSurname()\ :\ a.getMedium()\ >\ b.getMedium();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(opt\ ==\ \textcolor{stringliteral}{"{}med"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ sort(arr.begin(),\ arr.end(),}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ []\ (\mbox{\hyperlink{classstudent}{student}}\ a,\ \mbox{\hyperlink{classstudent}{student}}\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ a.getMedian()\ ==\ b.getMedian()\ ?\ a.getSurname()\ >\ b.getSurname()\ :\ a.getMedian()\ >\ b.getMedian();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ std::chrono::duration<double>\ difference\ =\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ in:\ "{}}\ <<\ difference.count()\ <<\ \textcolor{stringliteral}{"{}\ s\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SPLITTING,\ strategy\ 3}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Splitting\ into\ two\ vectors\ (3nd\ strategy)...\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ vector<student>\ fail;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(opt\ ==\ \textcolor{stringliteral}{"{}vid"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ frac\ =\ find\_if(arr.begin(),\ arr.end(),\ []\ (\mbox{\hyperlink{classstudent}{student}}\ a)\ \{\ return\ a.getMedium()\ <\ 5;\ \});\ \textcolor{comment}{//\ fracture}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ fail.insert(fail.begin(),\ frac,\ arr.end());}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ arr.erase(frac,\ arr.end());}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(opt\ ==\ \textcolor{stringliteral}{"{}med"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ frac\ =\ find\_if(arr.begin(),\ arr.end(),\ []\ (\mbox{\hyperlink{classstudent}{student}}\ a)\ \{\ return\ a.getMedian()\ <\ 5;\ \});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ fail.insert(fail.begin(),\ frac,\ arr.end());}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ arr.erase(frac,\ arr.end());}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ fail.shrink\_to\_fit();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ arr.shrink\_to\_fit();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ difference\ =\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ in:\ "{}}\ <<\ difference.count()\ <<\ \textcolor{stringliteral}{"{}\ s\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TEMPLATE}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ ofstream\ out[2];}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \ \ failRow\ =\ \textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ passRow\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ entry[100];}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ out[0].open(\textcolor{stringliteral}{"{}write/fail.txt"{}});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ out[1].open(\textcolor{stringliteral}{"{}write/pass.txt"{}});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i\ ++)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ out[i]\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ out[i]\ <<\ left\ <<\ setw(14)\ <<\ \textcolor{stringliteral}{"{}Vardas"{}}\ <<\ left\ <<\ setw(18)\ <<\ \textcolor{stringliteral}{"{}Pavarde"{}}\ <<\ left\ <<\ setw(16)\ <<\ \textcolor{stringliteral}{"{}Galutinis\ (Vid.)\ /\ Galutinis\ (Med.)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ out[i]\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ WRITING}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Writing\ into\ fail.txt...\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ \&i\ :\ fail)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ opt\ ==\ \textcolor{stringliteral}{"{}vid"{}}\ ?\ sprintf(entry,\ \textcolor{stringliteral}{"{}\%-\/13s\ \%-\/17s\ \%-\/18.2f\ \(\backslash\)n"{}},\ i.getName().c\_str(),\ i.getSurname().c\_str(),\ i.getMedium())\ :\ sprintf(entry,\ \textcolor{stringliteral}{"{}\%-\/13s\ \%-\/17s\ \%23.2f\ \(\backslash\)n"{}},\ i.getName().c\_str(),\ i.getSurname().c\_str(),\ i.getMedian());}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ failRow\ +=\ entry;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ fail.clear();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ out[0]\ <<\ failRow;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ out[0].close();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ difference\ =\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ in:\ "{}}\ <<\ difference.count()\ <<\ \textcolor{stringliteral}{"{}\ s\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Writing\ into\ pass.txt...\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ \&i\ :\ arr)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ opt\ ==\ \textcolor{stringliteral}{"{}vid"{}}\ ?\ sprintf(entry,\ \textcolor{stringliteral}{"{}\%-\/13s\ \%-\/17s\ \%-\/18.2f\ \(\backslash\)n"{}},\ i.getName().c\_str(),\ i.getSurname().c\_str(),\ i.getMedium())\ :\ sprintf(entry,\ \textcolor{stringliteral}{"{}\%-\/13s\ \%-\/17s\ \%23.2f\ \(\backslash\)n"{}},\ i.getName().c\_str(),\ i.getSurname().c\_str(),\ i.getMedian());}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ passRow\ +=\ entry;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ arr.clear();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ out[1]\ <<\ passRow;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ out[1].close();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ difference\ =\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ in:\ "{}}\ <<\ difference.count()\ <<\ \textcolor{stringliteral}{"{}\ s\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00125}00125\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00126}00126\ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00127}00127\ \textcolor{keywordtype}{void}\ fileInput(vector<student>\ \&arr)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00128}00128\ \ \ \ \ stringstream\ buf;\ \ \ \textcolor{comment}{//\ buffer}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00129}00129\ \ \ \ \ ifstream\ \ \ \ \ in;\ \ \ \ \textcolor{comment}{//\ input}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00130}00130\ \ \ \ \ \mbox{\hyperlink{classstudent}{student}}\ \ \ \ \ \ tmp;\ \ \ \textcolor{comment}{//\ temporary}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00131}00131\ \ \ \ \ \textcolor{keywordtype}{string}\ \ \ \ \ \ \ row,}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ file;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00133}00133\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ grade;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00135}00135\ \ \ \ \ system(\textcolor{stringliteral}{"{}ls\ read"{}});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00136}00136\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ name\ of\ the\ file\ to\ read\ from:\ "{}};\ cin\ >>\ file;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00137}00137\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Reading\ data...\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ in.open(\textcolor{stringliteral}{"{}read/"{}}\ +\ file);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(in.fail())\ \textcolor{keywordflow}{throw}\ 6;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ buf\ <<\ in.rdbuf();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ in.close();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ getline(buf,\ row);\ \textcolor{comment}{//\ reading\ just\ the\ first\ line\ of\ the\ data\ file}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ count(row.begin(),\ row.end(),\ \textcolor{charliteral}{'N'});\ \textcolor{comment}{//\ searching\ for\ the\ amount\ of\ homework}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(buf)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!buf.eof())\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buf\ >>\ row;\ tmp.\mbox{\hyperlink{classstudent_a469ecead9dd45f50f80004230a04a881}{setName}}(row);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buf\ >>\ row;\ tmp.\mbox{\hyperlink{classstudent_a8858762a5d549797d9d3535e7d239328}{setSurname}}(row);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ cnt;\ i\ ++)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buf\ >>\ grade;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmp.\mbox{\hyperlink{classstudent_a0bf926febaee6fc413f3823c290c8d67}{setGrade}}(grade);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buf\ >>\ grade;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmp.\mbox{\hyperlink{classstudent_a493d92ffc31cc60662bd69fe79be4668}{setExam}}(grade);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmp.\mbox{\hyperlink{classstudent_a2720c2c735b9b20fc3b1ad4d8141e5be}{setMedium}}(medium(tmp));}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmp.\mbox{\hyperlink{classstudent_ad76f1cdcd93bfbdbad9e4da07f3f7ffe}{setMedian}}(median(tmp));}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmp.\mbox{\hyperlink{classstudent_aee1b8524e1131f9a6eebec775be2b45c}{clearGrade}}();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr.push\_back(tmp);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ buf.clear();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ std::chrono::duration<double>\ difference\ =\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ in:\ "{}}\ <<\ difference.count()\ <<\ \textcolor{stringliteral}{"{}\ s\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00167}00167\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}(\textcolor{keywordtype}{int}\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Error\ "{}}\ <<\ e\ <<\ \textcolor{stringliteral}{"{}:\ file\ not\ found\(\backslash\)n"{}};\ exit(0);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00169}00169\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00170}00170\ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00171}00171\ \textcolor{keywordtype}{void}\ userInput(\mbox{\hyperlink{classstudent}{student}}\ \&tmp)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00172}00172\ \ \ \ \ \textcolor{keywordtype}{string}\ opt\ =\ \textcolor{stringliteral}{"{}\ "{}};\ \ \ \textcolor{comment}{//\ option}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00173}00173\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ sum\ =\ 0,\ \ \ \ \ \textcolor{comment}{//\ entered\ grade}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ grd;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ sum\ of\ entered\ grades}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00175}00175\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ student's\ name\ and\ surname:\ "{}};\ cin\ >>\ opt;\ tmp.\mbox{\hyperlink{classstudent_a469ecead9dd45f50f80004230a04a881}{setName}}(opt);\ cin\ >>\ opt;\ tmp.\mbox{\hyperlink{classstudent_a8858762a5d549797d9d3535e7d239328}{setSurname}}(opt);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00176}00176\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Would\ you\ like\ to\ randomize\ the\ grades\ (type\ 'ran')\ or\ enter\ yourself?\ (any\ key\ to\ continue):\ "{}};\ cin\ >>\ opt;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00177}00177\ \ \ \ \ \textcolor{keywordflow}{if}(opt\ !=\ \textcolor{stringliteral}{"{}ran"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ exam\ grade:\ "{}};\ cin\ >>\ grd;\ tmp.\mbox{\hyperlink{classstudent_a493d92ffc31cc60662bd69fe79be4668}{setExam}}(grd);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(cin.fail()\ ||\ tmp.\mbox{\hyperlink{classstudent_a2f1d5d68ef451f44635e302afbb93a38}{getExam}}()\ <\ 0\ ||\ tmp.\mbox{\hyperlink{classstudent_a2f1d5d68ef451f44635e302afbb93a38}{getExam}}()\ >\ 10)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Incorrect\ form.\ Try\ again:\ "{}};\ cin\ >>\ grd;\ tmp.\mbox{\hyperlink{classstudent_a493d92ffc31cc60662bd69fe79be4668}{setExam}}(grd);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ grades\ (any\ other\ symbol\ to\ stop):\ "{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(cin\ >>\ grd\ \&\&\ grd\ >=\ 0\ \&\&\ grd\ <=\ 10)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tmp.\mbox{\hyperlink{classstudent_ae34f5f1c49edab1cc5d02f0b3d4493aa}{getGrade}}().size()\ >=\ max)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}You\ can\ enter\ a\ maximum\ of\ "{}}\ <<\ max\ <<\ \textcolor{stringliteral}{"{}\ grades\ per\ student.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ tmp.\mbox{\hyperlink{classstudent_a0bf926febaee6fc413f3823c290c8d67}{setGrade}}(grd);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ sum\ +=\ grd;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(sum\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}At\ least\ one\ grade\ that\ is\ not\ a\ symbol\ and\ higher\ than\ 0\ must\ be\ entered!\ Try\ from\ the\ beginning.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ tmp.\mbox{\hyperlink{classstudent_aee1b8524e1131f9a6eebec775be2b45c}{clearGrade}}();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ userInput(tmp);\ \textcolor{comment}{//\ recursion}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ cout\ <<\ \textcolor{stringliteral}{"{}In\ total\ "{}}\ <<\ tmp.\mbox{\hyperlink{classstudent_ae34f5f1c49edab1cc5d02f0b3d4493aa}{getGrade}}().size()\ <<\ \textcolor{stringliteral}{"{}\ grades\ entered.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00201}00201\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00202}00202\ \ \ \ \ \textcolor{keywordflow}{else}\ randInput(tmp);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00203}00203\ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00204}00204\ \textcolor{keywordtype}{void}\ randInput(\mbox{\hyperlink{classstudent}{student}}\ \&tmp)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00205}00205\ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ 0,\ \textcolor{comment}{//\ counter}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ grd\ =\ 0;\ \textcolor{comment}{//\ generated\ grade}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00207}00207\ \ \ \ \ tmp.\mbox{\hyperlink{classstudent_a493d92ffc31cc60662bd69fe79be4668}{setExam}}(randomize(1,\ 10));\ \textcolor{comment}{//\ generated\ grade\ in\ a\ ten\ point\ system\ without\ 0\ (student\ must\ participate\ in\ an\ exam)}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00208}00208\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}The\ exam\ grade:\ "{}}\ <<\ tmp.\mbox{\hyperlink{classstudent_a2f1d5d68ef451f44635e302afbb93a38}{getExam}}()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00209}00209\ \ \ \ \ cnt\ =\ randomize(1,\ max);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00210}00210\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}The\ grades:\ "{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00211}00211\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ cnt;\ i\ ++)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ grd\ =\ randomize(0,\ 10);\ \textcolor{comment}{//\ generated\ grade\ in\ a\ ten\ point\ system\ with\ 0\ (student\ may\ not\ submit\ his\ homework)}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ tmp.\mbox{\hyperlink{classstudent_a0bf926febaee6fc413f3823c290c8d67}{setGrade}}(grd);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ i\ !=\ cnt\ -\/\ 1\ ?\ cout\ <<\ grd\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ :\ cout\ <<\ grd\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00215}00215\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00216}00216\ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00217}00217\ \textcolor{keywordtype}{double}\ medium(\mbox{\hyperlink{classstudent}{student}}\ \&tmp)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00218}00218\ \ \ \ \ vector<int>\ grd\ =\ tmp.\mbox{\hyperlink{classstudent_ae34f5f1c49edab1cc5d02f0b3d4493aa}{getGrade}}();\ \textcolor{comment}{//\ temporary\ copy\ of\ grades}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00219}00219\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ sum\ =\ accumulate(grd.begin(),\ grd.end(),\ sum);\ \textcolor{comment}{//\ computing\ the\ sum\ of\ the\ given\ initial\ value\ and\ the\ elements\ in\ the\ given\ range}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00220}00220\ \ \ \ \ \textcolor{keywordflow}{return}\ 0.4\ *\ ((double)sum\ /\ grd.size())\ +\ 0.6\ *\ tmp.\mbox{\hyperlink{classstudent_a2f1d5d68ef451f44635e302afbb93a38}{getExam}}();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00221}00221\ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00222}00222\ \textcolor{keywordtype}{double}\ median(\mbox{\hyperlink{classstudent}{student}}\ \&tmp)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00223}00223\ \ \ \ \ vector<int>\ grd\ =\ tmp.\mbox{\hyperlink{classstudent_ae34f5f1c49edab1cc5d02f0b3d4493aa}{getGrade}}();\ \textcolor{comment}{//\ temporary\ copy\ of\ grades}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00224}00224\ \ \ \ \ sort(grd.begin(),\ grd.end());}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00225}00225\ \ \ \ \ \textcolor{keywordflow}{return}\ grd.size()\ \%\ 2\ ==\ 0\ ?\ 0.4\ *\ ((grd[grd.size()\ /\ 2\ -\/\ 1]\ +\ grd[grd.size()\ /\ 2])\ /\ 2.0)\ +\ 0.6\ *\ tmp.\mbox{\hyperlink{classstudent_a2f1d5d68ef451f44635e302afbb93a38}{getExam}}()\ :\ 0.4\ *\ grd[grd.size()\ /\ 2]\ +\ 0.6\ *\ tmp.\mbox{\hyperlink{classstudent_a2f1d5d68ef451f44635e302afbb93a38}{getExam}}();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00226}00226\ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00227}00227\ \textcolor{keywordtype}{int}\ randomize(\textcolor{keywordtype}{int}\ beg,\ \textcolor{keywordtype}{int}\ end)\ \{\ \textcolor{comment}{//\ beginning,\ ending}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00228}00228\ \ \ \ \ mt19937\ mt(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::chrono::high\_resolution\_clock::now().time\_since\_epoch().count()));}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00229}00229\ \ \ \ \ uniform\_int\_distribution<int>\ dis(beg,\ end);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00230}00230\ \ \ \ \ \textcolor{keywordflow}{return}\ dis(mt);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00231}00231\ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00232}00232\ \textcolor{keywordtype}{void}\ fileGenerator()\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00233}00233\ \ \ \ \ stringstream\ buf;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00234}00234\ \ \ \ \ \textcolor{keywordtype}{string}\ \ \ \ \ \ \ filename;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00235}00235\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ homework,}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ students;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00237}00237\ \ \ \ \ \textcolor{comment}{//\ INPUTS}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00238}00238\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ name\ of\ the\ file\ (be\ sure\ to\ add\ *.txt\ file\ extension):\ "{}};\ cin\ >>\ filename;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00239}00239\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ homework\ assignments\ per\ student:\ "{}};\ cin\ >>\ homework;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00240}00240\ \ \ \ \ \textcolor{keywordflow}{while}(cin.fail()\ ||\ homework\ <\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}At\ least\ one\ homework\ assignment\ must\ be\ entered.\ Try\ again:\ "{}};\ cin\ >>\ homework;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00245}00245\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ the\ number\ of\ students:\ "{}};\ cin\ >>\ students;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00246}00246\ \ \ \ \ \textcolor{keywordflow}{while}(cin.fail()\ ||\ students\ <\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}At\ least\ one\ student\ must\ be\ entered.\ Try\ again:\ "{}};\ cin\ >>\ students;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00251}00251\ \ \ \ \ \textcolor{comment}{//\ RANDOMIZER}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00252}00252\ \ \ \ \ mt19937\ mt(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::chrono::high\_resolution\_clock::now().time\_since\_epoch().count()));}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00253}00253\ \ \ \ \ uniform\_int\_distribution<int>\ dis(0,\ 10);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00254}00254\ \ \ \ \ \textcolor{comment}{//\ START}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00255}00255\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Generating\ data...\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00256}00256\ \ \ \ \ \textcolor{keyword}{auto}\ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00257}00257\ \ \ \ \ \textcolor{comment}{//\ TEMPLATE}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00258}00258\ \ \ \ \ buf\ <<\ left\ <<\ setw(14)\ <<\ \textcolor{stringliteral}{"{}Vardas"{}}\ <<\ left\ <<\ setw(18)\ <<\ \textcolor{stringliteral}{"{}Pavarde"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00259}00259\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ homework;\ i\ ++)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ buf\ <<\ left\ <<\ setw(10)\ <<\ \textcolor{stringliteral}{"{}ND"{}}\ +\ to\_string(i\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00261}00261\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00262}00262\ \ \ \ \ buf\ <<\ left\ <<\ setw(10)\ <<\ \textcolor{stringliteral}{"{}Egz."{}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00263}00263\ \ \ \ \ \textcolor{comment}{//\ GENERATOR}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00264}00264\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ students;\ i\ ++)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ buf\ <<\ left\ <<\ setw(14)\ <<\ \textcolor{stringliteral}{"{}Vardas"{}}\ +\ to\_string(i\ +\ 1)\ <<\ left\ <<\ setw(18)\ <<\ \textcolor{stringliteral}{"{}Pavarde"{}}\ +\ to\_string(i\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ homework;\ j\ ++)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ buf\ <<\ left\ <<\ setw(10)\ <<\ dis(mt);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ buf\ <<\ dis(mt)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(i\ \%\ (students\ /\ 100)\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ 100\ *\ i\ /\ students\ <<\ \textcolor{stringliteral}{"{}\%\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00273}00273\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00274}00274\ \ \ \ \ ofstream\ out(\textcolor{stringliteral}{"{}read/"{}}\ +\ filename);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00275}00275\ \ \ \ \ out\ <<\ buf.rdbuf();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00276}00276\ \ \ \ \ buf.clear();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00277}00277\ \ \ \ \ out.close();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00278}00278\ \ \ \ \ \textcolor{comment}{//\ END}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00279}00279\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00280}00280\ \ \ \ \ std::chrono::duration<double>\ difference\ =\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00281}00281\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ in:\ "{}}\ <<\ difference.count()\ <<\ \textcolor{stringliteral}{"{}\ s\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00282}00282\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}File\ "{}}\ <<\ filename\ <<\ \textcolor{stringliteral}{"{}\ was\ generated.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00283}00283\ \}}
+
+\end{DoxyCode}

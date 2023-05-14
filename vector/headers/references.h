@@ -12,7 +12,9 @@ class person {
     public:
         person() : name(""), surname("") { }
 
+        //! Get student's name.
         inline string getName() const { return name; }
+        //! Get student's surname.
         inline string getSurname() const { return surname; }
 
         virtual void setName(string a) = 0;
@@ -25,24 +27,36 @@ class student : public person {
     private:
         vector<int> grade;
         int         exam;
-        float       medium,
+        double      medium,
                     median;
     public:
         student() : exam(0), medium(0), median(0) { }
 
-        inline string getName() const { return name; }
-        inline string getSurname() const { return surname; }
+        //! Get student's grades.
         inline vector<int> getGrade() const { return grade; }
+        //! Get student's exam mark.
         inline int getExam() const { return exam; }
+        //! Get student's final mark (calculated by medium).
         inline double getMedium() const { return medium; }
+        //! Get student's final mark (calculated by median).
         inline double getMedian() const { return median; }
 
+        //! Set student's name.
         void setName(string a) { name = a; }
+        //! Set student's surname.
         void setSurname(string a) { surname = a; }
-        void setGrade(int a);
+        //! Set student's grade.
+        void setGrade(int a) {
+            grade.reserve(grade.size() + 1);
+            grade.push_back(a);
+        }
+        //! Clear all student's grades.
         void clearGrade() { grade.clear(); }
+        //! Set student's exam mark.
         void setExam(int a) { exam = a; }
+        //! Set student's final mark (calculated by medium).
         void setMedium(double a) { medium = a; }
+        //! Set student's final mark (calculated by median).
         void setMedian(double a) { median = a; }
 
         student(const student &other) {
@@ -94,7 +108,6 @@ void userInput(student &tmp);
 void randInput(student &tmp);
 double medium(student &tmp);
 double median(student &tmp);
-bool comparison(student &a, student &b);
 int randomize(int beg, int end);
 void fileGenerator();
 
