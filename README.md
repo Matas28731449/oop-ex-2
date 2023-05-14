@@ -2,15 +2,27 @@
 
 **Installation process:**
 
-Clone my GitHub repository: `git clone https://github.com/Matas28731449/oop-ex-2.git` ;
+Download the installer file: `oop-ex-macos-installer-x64-1.5.0.pkg` ;
 
-Navigate to cloned repository: `cd {folder name}/oop-ex-2` ;
+Run the installer and go through the installation process ;
+
+Navigate to oop-ex project folder: `cd Library / oop-ex / 1.5.0` ;
 
 Compile the files via Makefile: `make` ;
 
 Run the program: `./main` ;
 
 Follow the instructions, <b style="color: blue">happy using!</b>
+
+**v2.0**
+
+Updates from previous version:
+
+- Created `project documentation` via `Doxygen` ;
+
+- `Applied` a couple `Unit tests` for demonstration purposes. The `GoogleTest framework` was used ;
+
+- Automatic `v1.5` project `deployment file` created .
 
 **v1.5**
 
