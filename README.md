@@ -6,11 +6,11 @@ Download the installer file: `oop-ex-macos-installer-x64-1.5.0.pkg` ;
 
 Run the installer and go through the installation process ;
 
-Navigate to oop-ex project folder: `cd Library / oop-ex / 1.5.0` ;
+Navigate to oop-ex project folder: `cd .. / .. / .. / Library / oop-ex / 1.5.0` ;
 
-Compile the files via Makefile: `make` ;
+Compile the files via Makefile (run with superuser privileges): `sudo make` ;
 
-Run the program: `./main` ;
+Run the program (run with superuser privileges): `sudo ./main` ;
 
 Follow the instructions, <b style="color: blue">happy using!</b>
 
